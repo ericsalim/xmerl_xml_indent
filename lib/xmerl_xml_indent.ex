@@ -1,4 +1,4 @@
-defmodule :xmerl_xml_indent do
+defmodule XmerlXmlIndent do
   @moduledoc """
   Erlang OTP's built-in `xmerl` library lacks functionality to print XML with indent.
   This module fills the gap by providing a custom callback to print XML with indent.

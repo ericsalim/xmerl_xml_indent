@@ -27,7 +27,7 @@ defmodule IndentTest do
   def export_indented(xml_str) do
     xml_chars = String.to_charlist(xml_str)
     {xml_parsed, _} = :xmerl_scan.string(xml_chars)
-    xml_exported = :xmerl.export([xml_parsed], :xmerl_xml_indent)
+    xml_exported = :xmerl.export([xml_parsed], XmerlXmlIndent)
     to_string(xml_exported)
   end
 

@@ -6,7 +6,7 @@ defmodule XmerlXmlIndent.MixProject do
       app: :xmerl_xml_indent,
       version: "0.1.0",
       elixir: "~> 1.12",
-      name: "xmerl_xml_indent",
+      name: "XmerlXmlIndent",
       description: description(),
       package: package(),
       source_url: github_url(),
