@@ -4,7 +4,7 @@ defmodule XmerlXmlIndent.MixProject do
   def project do
     [
       app: :xmerl_xml_indent,
-      version: "0.1.0",
+      version: "0.2.0",
       elixir: "~> 1.12",
       name: "XmerlXmlIndent",
       description: description(),
