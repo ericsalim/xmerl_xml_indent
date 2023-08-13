@@ -11,7 +11,6 @@ defmodule XmerlXmlIndentBase do
 
   defmacro __using__(_opts) do
     quote do
-
       def newline() do
         "\n"
       end
@@ -57,18 +56,17 @@ defmodule XmerlXmlIndentBase do
         :xmerl_lib.markup(tag, attrs, data)
       end
 
-      @doc """
-      This function distinguishes an XML tag from an XML value.
+      # This function distinguishes an XML tag from an XML value.
 
-      Let's say there's an XML string `<Outer><Inner>Value</Inner></Outer>`,
-      there will be two calls to this function:
-      1. The first call has `data` parameter `['Value']`
-      2. The second call has `data` parameter
-         `[[['<', 'Inner', '>'], ['Value'], ['</', 'Inner', '>']]]`
+      # Let's say there's an XML string `<Outer><Inner>Value</Inner></Outer>`,
+      # there will be two calls to this function:
+      # 1. The first call has `data` parameter `['Value']`
+      # 2. The second call has `data` parameter
+      #    `[[['<', 'Inner', '>'], ['Value'], ['</', 'Inner', '>']]]`
 
-      The first one is an XML value, not an XML tag.
-      The second one is an XML tag.
-      """
+      # The first one is an XML value, not an XML tag.
+      # The second one is an XML tag.
+
       defp is_a_tag?(data) do
         is_all_chars =
           Enum.reduce(
@@ -83,23 +81,22 @@ defmodule XmerlXmlIndentBase do
         !is_all_chars
       end
 
-      @doc """
-      This function cleans up a tag data contaminated by characters outside the tag.
+      # This function cleans up a tag data contaminated by characters outside the tag.
 
-      If the tag data is indented, this function removes the new lines
-      ```
-      [
-        '\\n        ',
-        [['<', 'Tag', '>'], ['Value'], ['</', 'Tag', '>']],
-        '\\n      '
-      ]
-      ```
+      # If the tag data is indented, this function removes the new lines
+      # ```
+      # [
+      #   '\\n        ',
+      #   [['<', 'Tag', '>'], ['Value'], ['</', 'Tag', '>']],
+      #   '\\n      '
+      # ]
+      # ```
 
-      After the cleanup, the tag data looks like this:
-      ```
-      [[['<', 'Tag', '>'], ['Value'], ['</', 'Tag', '>']]]
-      ```
-      """
+      # After the cleanup, the tag data looks like this:
+      # ```
+      # [[['<', 'Tag', '>'], ['Value'], ['</', 'Tag', '>']]]
+      # ```
+
       defp clean_up_tag(data) do
         Enum.filter(
           data,
@@ -107,33 +104,32 @@ defmodule XmerlXmlIndentBase do
         )
       end
 
-      @doc """
-      This function indents all tag lines in the data.
+      # This function indents all tag lines in the data.
 
-      Example clean tag data:
-      ```
-      [
-        [['<', 'Tag1', '>'], ['Value 1'], ['</', 'Tag1', '>']],
-        [['<', 'Tag2', '>'], ['Value 2'], ['</', 'Tag2', '>']],
-      ]
-      ```
+      # Example clean tag data:
+      # ```
+      # [
+      #   [['<', 'Tag1', '>'], ['Value 1'], ['</', 'Tag1', '>']],
+      #   [['<', 'Tag2', '>'], ['Value 2'], ['</', 'Tag2', '>']],
+      # ]
+      # ```
 
-      This function interleaves the tag data with indented new lines and appends
-      a new line with one lower level indent:
-      ```
-      [
-        ['\\n  ']
-        ['<', 'Tag1', '>'],
-        ['Value 1'],
-        ['</', 'Tag1', '>'],
-        ['\\n  ']
-        ['<', 'Tag2', '>'],
-        ['Value 2'],
-        ['</', 'Tag2', '>'],
-        ['\\n']
-      ]
-      ```
-      """
+      # This function interleaves the tag data with indented new lines and appends
+      # a new line with one lower level indent:
+      # ```
+      # [
+      #   ['\\n  ']
+      #   ['<', 'Tag1', '>'],
+      #   ['Value 1'],
+      #   ['</', 'Tag1', '>'],
+      #   ['\\n  ']
+      #   ['<', 'Tag2', '>'],
+      #   ['Value 2'],
+      #   ['</', 'Tag2', '>'],
+      #   ['\\n']
+      # ]
+      # ```
+
       defp indent_tag_lines(data, level) do
         indented =
           Enum.reduce(
