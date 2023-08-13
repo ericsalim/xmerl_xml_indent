@@ -13,7 +13,7 @@ Add `xmerl_xml_indent` to your list of dependencies in `mix.exs`:
 ```elixir
 def deps do
   [
-    {:xmerl_xml_indent, "~> 0.1.0"}
+    {:xmerl_xml_indent, "~> 0.2.0"}
   ]
 end
 ```
