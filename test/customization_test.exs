@@ -1,8 +1,8 @@
 defmodule XmerlXmlIndentCustom do
   use XmerlXmlIndentBase
 
-  def newline() do
-    "NEWLINE"
+  def new_line() do
+    "NEW_LINE"
   end
 
   def indent() do
@@ -13,18 +13,18 @@ end
 defmodule CustomizationTest do
   use ExUnit.Case
 
-  @correct_simple "<?xml version=\"1.0\"?>NEWLINE
-<Level1>NEWLINE
-INDENT<Level2>NEWLINE
-INDENTINDENT<Level3A>This is level 3A</Level3A>NEWLINE
-INDENTINDENT<Level3B>This is level 3B</Level3B>NEWLINE
-INDENTINDENT<Level3C>NEWLINE
-INDENTINDENTINDENT<Level4>This is level 4</Level4>NEWLINE
-INDENTINDENTINDENT<Level4B>NEWLINE
-INDENTINDENTINDENTINDENT<Level5>This is level 5</Level5>NEWLINE
-INDENTINDENTINDENT</Level4B>NEWLINE
-INDENTINDENT</Level3C>NEWLINE
-INDENT</Level2>NEWLINE
+  @correct_simple "<?xml version=\"1.0\"?>NEW_LINE
+<Level1>NEW_LINE
+INDENT<Level2>NEW_LINE
+INDENTINDENT<Level3A>This is level 3A</Level3A>NEW_LINE
+INDENTINDENT<Level3B>This is level 3B</Level3B>NEW_LINE
+INDENTINDENT<Level3C>NEW_LINE
+INDENTINDENTINDENT<Level4>This is level 4</Level4>NEW_LINE
+INDENTINDENTINDENT<Level4B>NEW_LINE
+INDENTINDENTINDENTINDENT<Level5>This is level 5</Level5>NEW_LINE
+INDENTINDENTINDENT</Level4B>NEW_LINE
+INDENTINDENT</Level3C>NEW_LINE
+INDENT</Level2>NEW_LINE
 </Level1>"
 
   def export_indented(xml_str) do

@@ -11,7 +11,7 @@ defmodule XmerlXmlIndentBase do
 
   defmacro __using__(_opts) do
     quote do
-      def newline() do
+      def new_line() do
         "\n"
       end
 
@@ -32,7 +32,7 @@ defmodule XmerlXmlIndentBase do
       end
 
       def unquote(:"#root#")(data, _attrs, [], _e) do
-        ["<?xml version=\"1.0\"?>#{newline()}", data]
+        ["<?xml version=\"1.0\"?>#{new_line()}", data]
       end
 
       def unquote(:"#element#")(tag, [], attrs, _parents, _e) do
@@ -144,10 +144,10 @@ defmodule XmerlXmlIndentBase do
       end
 
       defp prepend_indent(level) do
-        (newline() <> String.duplicate(indent(), level)) |> to_charlist()
+        (new_line() <> String.duplicate(indent(), level)) |> to_charlist()
       end
 
-      defoverridable newline: 0, indent: 0
+      defoverridable new_line: 0, indent: 0
     end
   end
 end
