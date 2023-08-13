@@ -1,10 +1,10 @@
 # xmerl_xml_indent
 
-A callback module to write XML with indentation for Elixir.
+Erlang OTP's built-in `xmerl` module lacks the functionality to print XML with indentation. This module is an alternative to `xmerl_xml` to print XML with indentation.
+
+This module is taken from https://github.com/erlang/otp/blob/master/lib/xmerl/src/xmerl_xml.erl, converted to Elixir and modified for indentation.
 
 As the module name suggests, this library must be used in conjunction with Erlang's built-in `xmerl` library.
-
-Erlang's `xmerl` library lacks the module to export XML with indentation. This library provides an alternative callback module to `xmerl_xml`.
 
 ## Installation
 
@@ -19,7 +19,6 @@ end
 ```
 
 ## Usage
-
 
 ```elixir
 xml_str = "<?xml version = \"1.0\"?><Level1><Level2><Level3A>This is level 3</Level3A><Level3B>This is level 3B</Level3B><Level3C><Level4>This is level 4</Level4><Level4B><Level5>This is level 5</Level5></Level4B></Level3C></Level2></Level1>"
@@ -48,7 +47,22 @@ The above code produces XML output:
 </Level1>
 ```
 
-## Limitations
+## Customizing End of Line (EOL) and Indent characters
 
-1. This module indent XML with 2 spaces. This is not configurable
-2. This module indent XML with LF (`\n`) only. This is not configurable
+`XmerlXmlIndent` uses LF (`\n`) as the EOL character and two spaces as the indent.
+
+If you want to customize this behavior, use can create a custom module. For example:
+
+```elixir
+defmodule XmerlXmlIndentCustom do
+  use XmerlXmlIndentBase
+
+  def new_line() do
+    "\r\n"
+  end
+
+  def indent() do
+    "\t"
+  end
+end
+```

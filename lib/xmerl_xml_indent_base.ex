@@ -11,10 +11,16 @@ defmodule XmerlXmlIndentBase do
 
   defmacro __using__(_opts) do
     quote do
+      @doc """
+      This function specifies the end of line (EOL) character. The default is `\n`.
+      """
       def new_line() do
         "\n"
       end
 
+      @doc """
+      This function specifies the indent character. The default is `  ` (two spaces).
+      """
       def indent() do
         "  "
       end
