@@ -51,7 +51,7 @@ The above code produces XML output:
 
 `XmerlXmlIndent` uses LF (`\n`) as the EOL character and two spaces as the indent.
 
-If you want to customize this behavior, use can create a custom module. For example:
+If you want to customize this behavior, you can create a custom module. For example:
 
 ```elixir
 defmodule XmerlXmlIndentCustom do
