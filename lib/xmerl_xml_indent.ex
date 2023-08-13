@@ -66,7 +66,8 @@ defmodule XmerlXmlIndent do
         fn d, acc ->
           is_char = is_integer(Enum.at(d, 0))
           acc && is_char
-        end)
+        end
+      )
 
     !is_all_chars
   end
@@ -91,7 +92,8 @@ defmodule XmerlXmlIndent do
   defp clean_up_tag(data) do
     Enum.filter(
       data,
-      fn d -> !is_integer(Enum.at(d, 0)) end)
+      fn d -> !is_integer(Enum.at(d, 0)) end
+    )
   end
 
   @doc """
@@ -128,7 +130,8 @@ defmodule XmerlXmlIndent do
         [],
         fn d, acc ->
           acc ++ [prepend_indent(level + 1)] ++ d
-        end)
+        end
+      )
 
     indented ++ [prepend_indent(level)]
   end

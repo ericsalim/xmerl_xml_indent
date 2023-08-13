@@ -24,7 +24,7 @@ defmodule XmerlXmlIndent.MixProject do
       files: ["lib", "mix.exs", "README*", "LICENSE*"],
       licenses: ["Apache-2.0"],
       maintainers: ["Eric Salim"],
-      links: %{"GitHub" => github_url() }
+      links: %{"GitHub" => github_url()}
     ]
   end
 
