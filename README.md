@@ -1,3 +1,11 @@
+# ⚠️ DEPRECATED
+
+I'm planning to archive this repository soon - probably in late 2025. It was originally created before OTP supported XML export with indentation. However, as of OTP 27, the `xmerl_xml_indent module` is available out of the box. You can find more information here: https://www.erlang.org/patches/otp-27.0#xmerl-2.0
+
+This package offers additional functionality, such as customizing the newline character and indent size - features that, as far as I know, are not currently supported by the built-in module. That said, I encourage contributing improvements directly to the official module instead.
+
+If you believe this package should continue to be maintained, please let me know.
+
 # xmerl_xml_indent
 
 Erlang OTP's built-in `xmerl` module lacks the functionality to print XML with indentation. This module is an alternative to `xmerl_xml` to print XML with indentation.
